@@ -2,11 +2,9 @@
 
 Improve redux-form api to give your connected form all of the state it needs! :penguin:
 
-[ ![Codeship Status for cdaringe/reduxify-form](https://app.codeship.com/projects/8944d7f0-6e6a-0134-4108-3672b74a6b59/status?branch=ma
-ster)](https://app.codeship.com/projects/177795) [![Coverage Status](https://coveralls.io/repos/github/cdaringe/ripcord/badge.svg
-?branch=master)](https://coveralls.io/github/cdaringe/ripcord?branch=master) ![](https://img.shields.io/badge/standardjs-%E2%9C%9
-3-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)
-](https://github.com/semantic-release/semantic-release)
+[ ![Codeship Status for cdaringe/reduxify-form](https://app.codeship.com/projects/6093c460-a555-0134-848d-3e884ad29ec0/status?branch=master)](https://app.codeship.com/projects/190842)
+[![Coverage Status](https://coveralls.io/repos/github/cdaringe/reduxify-form/badge.svg?branch=master)](https://coveralls.io/github/cdaringe/reduxify-form?branch=master) ![](https://img.shields.io/badge/standardjs-%E2%9C%9
+3-brightgreen.svg)
 
 ## why
 
