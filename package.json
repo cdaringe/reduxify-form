@@ -1,6 +1,6 @@
 {
   "name": "reduxify-form",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Improve redux-form api to give your connected form all of the state it needs!",
   "main": "src/index.js",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "peerDependencies": {
     "react-redux": "*",
-    "redux-form": "^5"
+    "redux-form": ">=5.0.0"
   },
   "author": "cdaringe<cdaringe@gmail.com>",
   "license": "MIT",
@@ -21,9 +21,16 @@
     "redux": "^3.6.0",
     "redux-form": "^6.3.2",
     "sinon": "^1.17.6",
+    "standard": "^8.6.0",
     "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "nyc --reporter=lcov --check-coverage --functions=90 --branches=90 node test/"
+    "test": "nyc --reporter=lcov --check-coverage --functions=90 --branches=90 node test/",
+    "validate": "npm ls && ripcord counsel check",
+    "lint": "standard",
+    "preversion": "git checkout master && git pull",
+    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
+    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish"
   }
 }

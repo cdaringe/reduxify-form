@@ -1,10 +1,8 @@
 const rf = require('redux-form')
-const reduxForm = rf.reduxForm
 const reduxFormPropTypes = rf.reduxFormPropTypes
 const getFormValues = rf.getFormValues
 const getFormSyncErrors = rf.getFormSyncErrors
 const getFormSubmitErrors = rf.getFormSubmitErrors
-
 
 /* istanbul ignore next */
 const _getState = function _getState (formName, state) {
@@ -43,7 +41,7 @@ const mod = {
     const RFComponent = this._reduxForm({ form: formName })(Component)
     /* istanbul ignore next */
     return connect(
-      function getFormState(state) {
+      function getFormState (state) {
         return {
           formState: opts.getState ? opts.getState(formName, state) : this._getState(formName, state)
         }
