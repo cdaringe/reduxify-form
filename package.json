@@ -1,6 +1,6 @@
 {
   "name": "reduxify-form",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Improve redux-form api to give your connected form all of the state it needs!",
   "main": "src/index.js",
   "repository": {
