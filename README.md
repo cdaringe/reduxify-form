@@ -20,16 +20,17 @@ this package makes setting up your form easier to get all the rich form state yo
 
 `npm install --save reduxify-form`
 
-hopefully, you already have redux-form and react-redux install :)
-
-let's consider the [example of how redux-form recommends getting extra state into your form.](http://redux-form.com/6.3.1/examples/selectingFormValues/).
+consider the [example of how redux-form recommends getting extra state into your form](http://redux-form.com/6.3.1/examples/selectingFormValues/).
 
 ```jsx
 // redux-form provided example, simplified/condensed
+
+// boring old imports
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 
+// boring old form component
 let MyForm = (props) => {
   const { firstName, handleSubmit } = props
   return (
@@ -41,14 +42,15 @@ let MyForm = (props) => {
   )
 }
 
+// connect redux-form to our component for the first time...
 MyForm = reduxForm({
-  form: 'myForm'  // a unique identifier for this form
+  form: 'myForm'
 })(MyForm)
 
-const selector = formValueSelector('myForm') // <-- same as form name
-SelectingFormValuesForm = connect(
+// connect our component again to get some additional state
+MyForm = connect(
   state => {
-    const firstName = selector(state, 'firstName')
+    const firstName = formValueSelector('myForm')(state, 'firstName')
     return { firstName }
   }
 )(MyForm)
@@ -56,16 +58,19 @@ SelectingFormValuesForm = connect(
 export default MyForm
 ```
 
-ok, that's not too bad!  unforunately, not all selectors _work_.  see [#2299](https://github.com/erikras/redux-form/issues/2299).  further, this could be tidied some! let's examine how `reduxify-form` helps.
+ok, that's not too bad!  unforunately, not all selectors _work_.  see [#2299](https://github.com/erikras/redux-form/issues/2299).  further, this could be a little bit friendlier! let's examine how `reduxify-form` helps.
 
 ```jsx
-// redux-form provided example, simplified/condensed
+// reduxify-form example
+
+// one extra import!
 import React from 'react'
 import { Field } from 'redux-form'
 import { connect } from 'react-redux'
-import { reduxifyForm } from 'reduxify-form'
+import { reduxifyForm } from 'reduxify-form' // <== this guy :)
 
 let MyForm = (props) => {
+  // note where we get our additional state from now
   const { formState: { firstName }, handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
@@ -76,6 +81,8 @@ let MyForm = (props) => {
   )
 }
 
+// wait, and this is it?
+// yup!  just one call to get all of that additional state (like field values, such as firstName)
 export default reduxifyForm({
   component: MyForm,
   formName: 'myform',

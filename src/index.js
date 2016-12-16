@@ -1,4 +1,4 @@
-var rf = require('redux-form')
+const rf = require('redux-form')
 const reduxForm = rf.reduxForm
 const reduxFormPropTypes = rf.reduxFormPropTypes
 const getFormValues = rf.getFormValues
@@ -7,7 +7,7 @@ const getFormSubmitErrors = rf.getFormSubmitErrors
 
 
 /* istanbul ignore next */
-function _getState (formName, state) {
+const _getState = function _getState (formName, state) {
   return {
     values: getFormValues(formName)(state),
     syncErrors: getFormSyncErrors(formName)(state),
@@ -31,7 +31,7 @@ function _getState (formName, state) {
 const mod = {
   _reduxForm: rf.reduxForm,
   connect: null,
-  _getState,
+  _getState: _getState,
   reduxifyForm: function (opts) {
     if (!opts) throw new Error('please provide object with Component & formName')
     const { component: Component, formName } = opts
@@ -55,6 +55,10 @@ const mod = {
   }
 }
 
-for (var prop in mod) if (typeof mod[prop] === 'function') mod[prop].bind(mod)
+for (let prop in mod) {
+  if (typeof mod[prop] === 'function') {
+    mod[prop] = mod[prop].bind(mod)
+  }
+}
 
 module.exports = mod
