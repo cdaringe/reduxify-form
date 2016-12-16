@@ -1,0 +1,29 @@
+{
+  "name": "reduxify-form",
+  "version": "0.0.1",
+  "description": "Improve redux-form api to give your connected form all of the state it needs!",
+  "main": "src/index.js",
+  "repository": {
+    "url": "https://github.com/cdaringe/reduxify-form",
+    "type": "git"
+  },
+  "peerDependencies": {
+    "react-redux": "*",
+    "redux-form": "^5"
+  },
+  "author": "cdaringe<cdaringe@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "nyc": "^10.0.0",
+    "react": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-form": "^6.3.2",
+    "sinon": "^1.17.6",
+    "tape": "^4.6.3"
+  },
+  "scripts": {
+    "test": "nyc --reporter=lcov --check-coverage --functions=90 --branches=90 node test/"
+  }
+}
