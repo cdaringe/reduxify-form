@@ -31,14 +31,14 @@ const mod = {
   connect: null,
   _getState: _getState,
   reduxifyForm: function (opts) {
-    if (!opts) throw new Error('please provide object with Component & formName')
-    const { component: Component, formName } = opts
-    if (!Component) throw new Error('must provide Component')
+    if (!opts) throw new Error('please provide object with component & formName')
+    const { component, formName } = opts
+    if (!component) throw new Error('must provide component')
     if (!formName || typeof formName !== 'string') throw new Error('must string formName')
     const connect = opts.connect || this.connect
     if (!connect) throw new Error('please `init(connect)` or provide `.connect` to your opts')
-    Component.propTypes = Object.assign(Component.propTypes || {}, reduxFormPropTypes)
-    const RFComponent = this._reduxForm({ form: formName })(Component)
+    component.propTypes = Object.assign(component.propTypes || {}, reduxFormPropTypes)
+    const RFComponent = this._reduxForm({ form: formName })(component)
     /* istanbul ignore next */
     return connect(
       function getFormState (state) {
