@@ -23,7 +23,7 @@
     "redux": "^3.6.0",
     "redux-form": "^6.3.2",
     "sinon": "^1.17.6",
-    "standard": "^8.6.0",
+    "standard": "^9.0.2",
     "tape": "^4.6.3"
   },
   "scripts": {
