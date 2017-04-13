@@ -9,7 +9,7 @@
   },
   "peerDependencies": {
     "react-redux": "*",
-    "redux-form": ">=5.0.0"
+    "redux-form": ">=6.6.3"
   },
   "author": "cdaringe<cdaringe@gmail.com>",
   "license": "MIT",
