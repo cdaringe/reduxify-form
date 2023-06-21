@@ -24,7 +24,7 @@
     "redux-form": "^6.3.2",
     "sinon": "^2.2.0",
     "standard": "^10.0.0",
-    "tape": "^4.6.3"
+    "tape": "^5.0.0"
   },
   "scripts": {
     "build": "babel src -d build --source-maps",
